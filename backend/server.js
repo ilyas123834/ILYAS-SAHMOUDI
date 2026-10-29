@@ -12,8 +12,8 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // ===== Middlewares (toujours AVANT les routes) =====
-app.use(cors({ origin: "http://localhost:5173" })); // autorise le frontend React (Vite)
-app.use(express.json());                            // permet de lire req.body au format JSON
+app.use(cors()); // MODIFICATION : Autorise toutes les origines (résout l'erreur CORS avec Vercel)
+app.use(express.json()); // permet de lire req.body au format JSON
 
 // ===== Routes de base =====
 app.get("/", (req, res) => {
