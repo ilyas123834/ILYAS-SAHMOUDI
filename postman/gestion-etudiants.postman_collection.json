@@ -1,0 +1,69 @@
+{
+  "info": {
+    "name": "TP1 MERN - ILYAS-SAHMOUDI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:5000" },
+    { "key": "id", "value": "COLLER_ICI_LID_RENVOYE_PAR_LE_POST" }
+  ],
+  "item": [
+    {
+      "name": "1. GET /api/test",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/test" }
+    },
+    {
+      "name": "2. POST créer étudiant",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"nom\": \"Sara\",\n  \"email\": \"sara@example.com\",\n  \"age\": 21\n}" },
+        "url": "{{baseUrl}}/api/etudiants"
+      }
+    },
+    {
+      "name": "3. GET liste des étudiants",
+      "request": { "method": "GET", "url": "{{baseUrl}}/api/etudiants" }
+    },
+    {
+      "name": "4. PUT modifier étudiant",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"nom\": \"Sara Benali\",\n  \"email\": \"sara@example.com\",\n  \"age\": 22\n}" },
+        "url": "{{baseUrl}}/api/etudiants/{{id}}"
+      }
+    },
+    {
+      "name": "5. DELETE supprimer étudiant",
+      "request": { "method": "DELETE", "url": "{{baseUrl}}/api/etudiants/{{id}}" }
+    },
+    {
+      "name": "6. POST register",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"nom\": \"Sara\",\n  \"email\": \"sara@example.com\",\n  \"password\": \"MonMotDePasse123\"\n}" },
+        "url": "{{baseUrl}}/api/auth/register"
+      }
+    },
+    {
+      "name": "7. POST login (bon mot de passe)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"email\": \"sara@example.com\",\n  \"password\": \"MonMotDePasse123\"\n}" },
+        "url": "{{baseUrl}}/api/auth/login"
+      }
+    },
+    {
+      "name": "8. POST login (mauvais mot de passe -> 401)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"email\": \"sara@example.com\",\n  \"password\": \"mauvaisMotDePasse\"\n}" },
+        "url": "{{baseUrl}}/api/auth/login"
+      }
+    }
+  ]
+}
